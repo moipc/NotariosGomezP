@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notarios Rodriguez</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+    .titulo {
+      background-color: #ff0000;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .boton {
+      background-color: #17a2b8;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px;
+      text-decoration: none; /* Añadido para que el enlace no tenga subrayado */
+    }
+    .subtitulo {
+      margin-top: 50px;
+      margin-left: 20px;
+    }
+    #recuadroContacto {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="titulo">
+    <h1>Notarios Rodriguez</h1>
+    <p>Siempre a tu servicio</p>
+  </div>
+  <div style="text-align: center;">
+    <!-- Cambiado el botón a un enlace -->
+    <a class="boton" href=https://chat.whatsapp.com/DRSnEgUyvvf3D7ceVh1GEg>Contacto</a>
+  </div>
+  <div id="contacto" class="subtitulo">
+    <h3>Números de la Firma</h3>
+    <p>Telefono 1: <span id="telefono1"></span></p>
+    <p>Telefono 2: <span id="telefono2"></span></p>
+    <p>Telefono 3: <span id="telefono3"></span></p>
+  </div>
+  <div class="subtitulo">
+    <h3>¿No tiene tiempo para contactarnos? Nosotros lo haremos. Deja tu contacto y nos comunicaremos lo más rápido posible.</h3>
+  </div>
+  <div class="subtitulo">
+    <!-- Cambiado el botón de contacto -->
+    <a class="boton" href="https://wa.me/numero_de_telefono">CONTACTO</a>
+  </div>
+  <div id="recuadroContacto" class="subtitulo">
+    <h3>Deja tu contacto</h3>
+    <form id="formularioContacto" action="enviar_email.php" method="POST">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required><br><br>
+      <label for="telefono">Teléfono:</label>
+      <input type="text" id="telefono" name="telefono" required><br><br>
+      <label for="correo">Correo:</label>
+      <input type="email" id="correo" name="correo" required><br><br>
+      <input type="submit" value="Enviar">
+    </form>
+  </div>
+
+  <script>
+    function mostrarContacto() {
+      var telefonos = [];
+      for (var i = 0; i < 3; i++) {
+        telefonos.push(generarTelefonoAleatorio());
+      }
+      document.getElementById("telefono1").textContent = telefonos[0];
+      document.getElementById("telefono2").textContent = telefonos[1];
+      document.getElementById("telefono3").textContent = telefonos[2];
+      document.getElementById("contacto").style.display = "block";
+    }
+
+    function mostrarRecuadro() {
+      document.getElementById("recuadroContacto").style.display = "block";
+    }
+
+    function generarTelefonoAleatorio() {
+      var telefono = "+34";
+      for (var i = 0; i < 9; i++) {
+        telefono += Math.floor(Math.random() * 10);
+      }
+      return telefono;
+    }
+  </script>
+</body>
+</html>
